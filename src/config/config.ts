@@ -13,12 +13,13 @@ export default {
     dockerHost: os.hostname(),
     version: process.env.npm_package_version || ''
   },
-  postgres: {
-    user: process.env.PGSQL_DB_USER || 'user',
-    password: process.env.PGSQL_DB_PASSWORD || 'password',
-    database: process.env.PGSQL_DB_NAME || 'database',
-    host: process.env.PGSQL_DB_HOST || 'host',
-    port: process.env.PGSQL_DB_PORT || 5432,
+  db: {
+    dialect: process.env.DB || 'pg',
+    username: process.env.DB_USER || 'postgress',
+    password: process.env.DB_PASSWORD || 'postgress',
+    database: process.env.DB_NAME || 'myapp',
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || 5432,
   },
   rabbitmq: {
     hostname: process.env.RABBITMQ_HOST || 'hostname',
