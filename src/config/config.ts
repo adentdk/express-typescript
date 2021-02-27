@@ -1,5 +1,8 @@
 import fs from 'fs'
 import os from 'os'
+import dotEnv from 'dotenv'
+
+dotEnv.config()
 
 export default {
   node_env: process.env.NODE_ENV || 'development',
@@ -9,7 +12,7 @@ export default {
   },
   metrics: {
     heartbeatInterval: Number(process.env.HEARTBEAT_INTERVAL),
-    commitSha: fs.readFileSync(__dirname + '/commit_sha', {encoding: 'utf-8'}) || 'manual-build',
+    commitSha: fs.readFileSync(__dirname + '/commit_sha', { encoding: 'utf-8' }) || 'manual-build',
     dockerHost: os.hostname(),
     version: process.env.npm_package_version || ''
   },
